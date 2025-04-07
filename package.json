@@ -15,7 +15,7 @@
     "build": "parcel build src/module.tsx --target build"
   },
   "bin": {
-    "create-react-module": "./bin/install.js",
+    "create-hubspot-react-module": "./bin/install.js",
     "new": "./bin/install.js"
   },
   "author": "intesys",
