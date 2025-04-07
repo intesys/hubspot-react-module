@@ -18,7 +18,7 @@
     "create-react-module": "./bin/install.js",
     "new": "./bin/install.js"
   },
-  "author": "alessandro falezza",
+  "author": "intesys",
   "license": "GPL-3.0-only",
   "description": "An utility to create a react module for HubSpot",
   "dependencies": {
