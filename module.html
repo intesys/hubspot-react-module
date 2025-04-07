@@ -1,0 +1,11 @@
+<div id="module-{{ module.instance_id }}"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const containerId = "module-{{ module.instance_id }}";
+    const container = document.getElementById(containerId);
+    if (container) {
+      window.run{{{Module}}}(container);
+    }
+  });
+</script>
