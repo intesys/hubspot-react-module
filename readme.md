@@ -10,7 +10,7 @@ Add to your project as devDependency from github:
 
 ### Add a new module
 
-`npm exec create-react-module [path/to/folder.module] [module-name]`
+`npm exec create-hubspot-react-module [path/to/folder.module] [module-name]`
 
 A new module will be created in the directory you set, and you can start coding your React components.
 
