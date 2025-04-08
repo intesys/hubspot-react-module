@@ -2,17 +2,17 @@
   "name": "hubspot-react-module",
   "version": "1.0.0",
   "targets": {
-    "build": {
+    "hubspot": {
       "context": "browser",
       "includeNodeModules": true,
       "distDir": ".",
       "optimize": true,
-      "isLibrary": true
+      "isLibrary": false
     }
   },
   "scripts": {
-    "dev": "parcel watch src/module.tsx --target build --no-content-hash --no-hmr",
-    "build": "parcel build src/module.tsx --target build"
+    "dev": "parcel watch src/module.tsx --target hubspot --no-content-hash --no-hmr",
+    "build": "parcel build src/module.tsx --target hubspot --no-content-hash"
   },
   "bin": {
     "create-hubspot-react-module": "./bin/install.js",
