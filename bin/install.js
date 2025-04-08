@@ -2,7 +2,6 @@
 
 const fs = require("fs-extra");
 const path = require("path");
-const { execSync } = require("child_process");
 
 // Convert string to PascalCase
 const toPascalCase = (str) => {
@@ -88,5 +87,5 @@ filesToCopy.forEach((file) => {
     }
 });
 
-console.log("Installation complete!");
+console.log("Module created!");
 console.log('Run "npm install" in the target directory to install dependencies.');
