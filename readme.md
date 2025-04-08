@@ -2,13 +2,19 @@
 
 If you want to use react in Hubspot modules, try using this template. It's based on React, Typescript and Parcel.
 
-## Add a new module
+## Install
 
-`npm exec --package=./create-react-module new -- [path/to/folder.module] [module-name]`
+Add to your project as devDependency from github:
+
+`npm i -D https://github.com/intesys/hubspot-react-module.git`
+
+### Add a new module
+
+`npm exec create-react-module [path/to/folder.module] [module-name]`
 
 A new module will be created in the directory you set, and you can start coding your React components.
 
-### Workspace
+#### Using workspaces
 
 I strongly suggest to add the new modules to npm workspace, in `package.json`:
 
