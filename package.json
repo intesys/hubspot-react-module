@@ -1,18 +1,9 @@
 {
   "name": "hubspot-react-module",
   "version": "1.0.0",
-  "targets": {
-    "hubspot": {
-      "context": "browser",
-      "includeNodeModules": true,
-      "distDir": ".",
-      "optimize": true,
-      "isLibrary": false
-    }
-  },
   "scripts": {
-    "dev": "parcel watch src/module.tsx --target hubspot --no-content-hash --no-hmr",
-    "build": "parcel build src/module.tsx --target hubspot --no-content-hash"
+    "dev": "rolldown -c rolldown.config.ts --watch",
+    "build": "rolldown -c rolldown.config.ts"
   },
   "bin": {
     "create-hubspot-react-module": "./bin/install.js",
@@ -22,7 +13,6 @@
   "license": "GPL-3.0-only",
   "description": "An utility to create a react module for HubSpot",
   "dependencies": {
-    "parcel": "^2.14.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -38,6 +28,7 @@
     "fs-extra": "^11.2.0",
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
+    "rolldown": "^1.0.0-beta.13",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0"
   }
