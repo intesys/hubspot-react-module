@@ -1,6 +1,6 @@
 # Hubspot react module
 
-If you want to use react in Hubspot modules, try using this template. It's based on React, Typescript and Parcel.
+If you want to use react in Hubspot modules, try using this template. It's based on React, Typescript and Rolldown.
 
 ## Install
 
@@ -20,9 +20,7 @@ I strongly suggest to add the new modules to npm workspace, in `package.json`:
 
 ```json
 {
-  "workspaces": [
-    "path/to/folder.module"
-  ]
+  "workspaces": ["path/to/folder.module"]
 }
 ```
 
@@ -34,7 +32,7 @@ Then you can run npm commands typing `npm run -w folder.module` [command]
 
 `npm run -w folder.module dev`
 
-It watches changes to react code and automatically builds the module. 
+It watches changes to react code and automatically builds the module.
 
 ### Step 2
 
@@ -43,6 +41,7 @@ In order to test it, you have to open another terminal running hubspot sync.
 A typical configuration is:
 
 package.json
+
 ```json
 {
   "scripts": {
@@ -51,7 +50,7 @@ package.json
     "upload": "hs upload --account=production theme_name",
     "watch": "hs watch --account=production theme_name",
     "hs": "hs"
-  },
+  }
 }
 ```
 
