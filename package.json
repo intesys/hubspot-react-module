@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "rolldown -c rolldown.config.ts --watch",
-    "build": "rolldown -c rolldown.config.ts"
+    "build": "rolldown -c rolldown.config.ts",
+    "test": "node test/setup.js && playwright test"
   },
   "bin": {
     "create-hubspot-react-module": "./bin/install.js",
@@ -17,14 +18,15 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.2",
-    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
+    "@eslint/compat": "^1.2.8",
+    "@eslint/js": "^9.23.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^25.3.5",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.1",
-    "eslint": "^10.0.2",
-    "eslint-plugin-react": "^7.37.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.23.0",
+    "eslint-plugin-react": "^7.37.5",
     "fs-extra": "^11.2.0",
     "globals": "^17.4.0",
     "prettier": "^3.5.3",
