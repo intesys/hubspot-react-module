@@ -31,6 +31,7 @@ const filesToCopy = [
     "meta.json",
     "module.css",
     "module.html",
+    "rolldown.config.ts",
     // Add any other files/folders needed
 ];
 
