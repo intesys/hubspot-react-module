@@ -1,22 +1,34 @@
-# Hubspot react module
+# HubSpot React Module
 
-If you want to use react in Hubspot modules, try using this template. This npm module scaffolds new HubSpot modules with a React-based setup, compiling your components into HubSpot-compatible module files using Rolldown. It's based on React, Typescript and Rolldown.
+Use this package to scaffold HubSpot modules powered by React.
 
-## Install
+The template compiles React and TypeScript source code into HubSpot-compatible module files using Rolldown.
 
-Add to your project as devDependency from github:
+## Overview
+
+This package provides:
+
+- a scaffolding command for creating new HubSpot modules
+- a React + TypeScript module structure
+- a development workflow for local build and HubSpot sync
+
+## Installation
+
+Install the package as a development dependency:
 
 `npm i -D https://github.com/intesys/hubspot-react-module.git`
 
-### Add a new module
+## Create a Module
+
+Run the scaffold command:
 
 `npm exec create-hubspot-react-module [path/to/folder.module] [module-name]`
 
-A new module will be created in the directory you set, and you can start coding your React components.
+The command creates a new module in the target directory.
 
-#### Using workspaces
+## Workspace Setup (Recommended)
 
-I strongly suggest to add the new modules to npm workspace, in `package.json`:
+If you use npm workspaces, add the generated module path to `package.json`:
 
 ```json
 {
@@ -24,23 +36,23 @@ I strongly suggest to add the new modules to npm workspace, in `package.json`:
 }
 ```
 
-Then you can run npm commands typing `npm run -w folder.module` [command]
+Then run module-specific scripts with:
 
-## Development
+`npm run -w folder.module [command]`
 
-### Step 1
+## Development Workflow
+
+### 1. Start the module build watcher
 
 `npm run -w folder.module dev`
 
-It watches changes to react code and automatically builds the module.
+This command watches React source files and rebuilds the module on change.
 
-### Step 2
+### 2. Sync changes to HubSpot
 
-In order to test it, you have to open another terminal running hubspot sync.
+In a second terminal, run your HubSpot watch script.
 
-A typical configuration is:
-
-package.json
+Example root `package.json` scripts:
 
 ```json
 {
@@ -54,23 +66,27 @@ package.json
 }
 ```
 
-Run sync with `npm run watch`. Now all changes are available in your production environment, just reload the page where your module is used.
+Start sync with:
 
-## Development tips
+`npm run watch`
+
+After sync completes, reload the page where the module is used to verify changes.
+
+## Authoring Guidelines
 
 ### CSS
 
-I suggest to write plain old css in `module.css`, use regular `className` attributes in react, to match CSS rules.
+Define styles in `module.css` and use standard React `className` attributes to match selectors.
 
-### Hubspot fields
+### HubSpot fields
 
-Hubspot allow configuring module properties in it's page builder. Configurable properties are called "fields" and the easier way to configure them is using the module editor in the hubspot web app.
+HubSpot module properties are configured as fields in the page builder.
 
-Suggested steps to extend a module using fields:
+Recommended workflow:
 
-- create the new module locally using this library: `npm exec create-hubspot-react-module [path/to/folder.module] [module-name]`
-- update it to hubspot: `npm run upload`
-- go to Hubspot and add fields from the web app
+- create the module locally: `npm exec create-hubspot-react-module [path/to/folder.module] [module-name]`
+- upload to HubSpot: `npm run upload`
+- add fields in the HubSpot web app
 - download the updated module: `npm run download`
-- now you can find fields configuration in yout module `fields.json` file
-- fields properties are now passed to your React component as regular `props`, update your code to use them
+- review field definitions in `fields.json`
+- use field values in your React component props
