@@ -1,6 +1,35 @@
 {
   "name": "hubspot-react-module",
   "version": "0.0.1",
+  "description": "An utility to create a react module for HubSpot",
+  "author": "intesys",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intesys/hubspot-react-module.git"
+  },
+  "homepage": "https://github.com/intesys/hubspot-react-module#readme",
+  "bugs": {
+    "url": "https://github.com/intesys/hubspot-react-module/issues"
+  },
+  "keywords": [
+    "hubspot",
+    "react",
+    "module",
+    "scaffolding",
+    "cli"
+  ],
+  "files": [
+    "bin/",
+    "module.css",
+    "module.html",
+    "fields.json",
+    "meta.json",
+    "src/",
+    "rolldown.config.ts",
+    "tsconfig.json",
+    "readme.md"
+  ],
   "scripts": {
     "dev": "rolldown -c rolldown.config.ts --watch",
     "build": "rolldown -c rolldown.config.ts",
@@ -10,10 +39,7 @@
     "create-hubspot-react-module": "./bin/install.js",
     "new": "./bin/install.js"
   },
-  "author": "intesys",
-  "license": "GPL-3.0-only",
-  "description": "An utility to create a react module for HubSpot",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

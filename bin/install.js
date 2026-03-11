@@ -2,7 +2,9 @@
 
 const fs = require("fs-extra");
 const path = require("path");
-const modulePlaceholder = "___Module___";
+const modulePlaceholder = "___modulePascalCase___";
+const modulePlaceholderKebab = "---module-kebab-case---";
+const sourceDir = path.join(__dirname, "..", "templates");
 
 // Convert string to PascalCase
 const toPascalCase = (str) => {
@@ -13,10 +15,20 @@ const toPascalCase = (str) => {
         .join("");
 };
 
+// Convert string to kebab-case
+const toKebabCase = (str) => {
+    return str
+        .split(/[^a-zA-Z0-9]/) // Split by non-alphanumeric characters
+        .filter((part) => part.length > 0) // Remove empty parts
+        .map((part) => part.toLowerCase()) // Convert to lowercase
+        .join("-");
+};
+
 // Get target directory from command line args or use current directory
 const targetDir = process.argv[2] || ".";
-const moduleName = toPascalCase((process.argv[3] || targetDir).replace(/[\\/]/g, "-")); // slashes are not allowed in module names
-const sourceDir = path.join(__dirname, "..");
+const moduleName = (process.argv[3] || targetDir).replace(/[\\/]/g, "-"); // slashes are not allowed in module names
+const moduleNamePascal = toPascalCase(moduleName);
+const moduleNameKebab = toKebabCase(moduleName);
 
 console.log(`Installing configuratore.module to ${targetDir}...`);
 
@@ -46,11 +58,18 @@ const shouldProcessFile = (filePath) => {
 const replaceInFile = (filePath) => {
     if (shouldProcessFile(filePath)) {
         let content = fs.readFileSync(filePath, "utf8");
+
         if (content.includes(modulePlaceholder)) {
             console.log(`  Replacing ${modulePlaceholder} in ${filePath}`);
-            content = content.replace(new RegExp(modulePlaceholder, "g"), moduleName);
-            fs.writeFileSync(filePath, content, "utf8");
+            content = content.replace(new RegExp(modulePlaceholder, "g"), moduleNamePascal);
         }
+
+        if (content.includes(modulePlaceholderKebab)) {
+            console.log(`  Replacing ${modulePlaceholderKebab} in ${filePath}`);
+            content = content.replace(new RegExp(modulePlaceholderKebab, "g"), moduleNameKebab);
+        }
+
+        fs.writeFileSync(filePath, content, "utf8");
     }
 };
 

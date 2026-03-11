@@ -1,0 +1,27 @@
+# Development
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Testing
+e2e/
+test/
+test-results/
+playwright.config.ts
+
+# Build and development
+*.map
+
+# Documentation
+readme.md
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Config files
+.npmignore

@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { App } from "./components/App";
 
-window.run___Module___ = (el, fields: Record<string, string> = {}) => {
+window.run___modulePascalCase___ = (el, fields: Record<string, string> = {}) => {
   if (!el) {
     throw new Error(`Element with id ${el} not found`);
   }
@@ -10,6 +10,6 @@ window.run___Module___ = (el, fields: Record<string, string> = {}) => {
 
 declare global {
   interface Window {
-    run___Module___: (rootId: HTMLElement) => void;
+    run___modulePascalCase___: (rootId: HTMLElement) => void;
   }
 }
