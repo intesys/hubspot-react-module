@@ -5,7 +5,7 @@ window.run___Module___ = (el, fields: Record<string, string> = {}) => {
   if (!el) {
     throw new Error(`Element with id ${el} not found`);
   }
-  ReactDOM.createRoot(el).render(<App {{ ...fields }} />);
+  ReactDOM.createRoot(el).render(<App {...fields} />);
 };
 
 declare global {

@@ -1,10 +1,11 @@
+import { chromium } from "@playwright/test";
 import { execSync, spawn } from "child_process";
 import fs from "fs";
 import path from "path";
-import { chromium } from "@playwright/test";
 
 const ROOT_DIR = process.cwd();
-const MODULE_DIR = path.join(ROOT_DIR, "test", "myModule.module");
+const TEST_DIR = path.join(ROOT_DIR, "test");
+const MODULE_DIR = path.join(TEST_DIR, "myModule.module");
 const MODULE_DIR_REL = "test/myModule.module";
 
 function run(cmd: string, cwd: string = ROOT_DIR): void {
@@ -60,7 +61,7 @@ export default async function globalSetup() {
   // 2. Clean up
   console.log("\n=== Step 2: Clean up old test module ===");
   // fs.rmSync(MODULE_DIR, { recursive: true, force: true });
-  run(`rm -rf ${MODULE_DIR}`);
+  run(`rm -rf ${TEST_DIR}`);
 
   // 3. Scaffold
   console.log("\n=== Step 3: Scaffold module ===");
