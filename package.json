@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "rolldown -c rolldown.config.ts --watch",
     "build": "rolldown -c rolldown.config.ts",
-    "test": "node test/setup.js && playwright test"
+    "test": "playwright test"
   },
   "bin": {
     "create-hubspot-react-module": "./bin/install.js",

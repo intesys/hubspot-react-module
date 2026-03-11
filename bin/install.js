@@ -2,6 +2,7 @@
 
 const fs = require("fs-extra");
 const path = require("path");
+const modulePlaceholder = "___Module___";
 
 // Convert string to PascalCase
 const toPascalCase = (str) => {
@@ -41,13 +42,13 @@ const shouldProcessFile = (filePath) => {
     return extensions.some((ext) => filePath.endsWith(ext));
 };
 
-// Function to replace {{{Module}}} in a file
+// Function to replace modulePlaceholder in a file
 const replaceInFile = (filePath) => {
     if (shouldProcessFile(filePath)) {
         let content = fs.readFileSync(filePath, "utf8");
-        if (content.includes("{{{Module}}}")) {
-            console.log(`  Replacing {{{Module}}} in ${filePath}`);
-            content = content.replace(/{{{Module}}}/g, moduleName);
+        if (content.includes(modulePlaceholder)) {
+            console.log(`  Replacing ${modulePlaceholder} in ${filePath}`);
+            content = content.replace(new RegExp(modulePlaceholder, "g"), moduleName);
             fs.writeFileSync(filePath, content, "utf8");
         }
     }

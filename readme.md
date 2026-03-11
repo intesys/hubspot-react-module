@@ -1,6 +1,6 @@
 # Hubspot react module
 
-If you want to use react in Hubspot modules, try using this template. It's based on React, Typescript and Rolldown.
+If you want to use react in Hubspot modules, try using this template. This npm module scaffolds new HubSpot modules with a React-based setup, compiling your components into HubSpot-compatible module files using Rolldown. It's based on React, Typescript and Rolldown.
 
 ## Install
 
@@ -61,3 +61,16 @@ Run sync with `npm run watch`. Now all changes are available in your production 
 ### CSS
 
 I suggest to write plain old css in `module.css`, use regular `className` attributes in react, to match CSS rules.
+
+### Hubspot fields
+
+Hubspot allow configuring module properties in it's page builder. Configurable properties are called "fields" and the easier way to configure them is using the module editor in the hubspot web app.
+
+Suggested steps to extend a module using fields:
+
+- create the new module locally using this library: `npm exec create-hubspot-react-module [path/to/folder.module] [module-name]`
+- update it to hubspot: `npm run upload`
+- go to Hubspot and add fields from the web app
+- download the updated module: `npm run download`
+- now you can find fields configuration in yout module `fields.json` file
+- fields properties are now passed to your React component as regular `props`, update your code to use them
