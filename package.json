@@ -1,6 +1,6 @@
 {
   "name": "hubspot-react-module",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "rolldown -c rolldown.config.ts --watch",
     "build": "rolldown -c rolldown.config.ts",
