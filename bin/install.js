@@ -37,6 +37,7 @@ fs.ensureDirSync(targetDir);
 
 // Files/directories to copy (excluding node_modules, dist, etc.)
 const filesToCopy = [
+    ".hsignore",
     "src",
     "tsconfig.json",
     "package.json",
